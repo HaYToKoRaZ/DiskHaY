@@ -1,0 +1,59 @@
+name: IndexNow Submit
+
+on:
+  push:
+    branches:
+      - websites
+    paths-ignore:
+      - '.github/**'
+  workflow_dispatch:
+
+jobs:
+  submit-indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for IndexNow key file on GitHub Pages
+        run: |
+          KEY="f8b88c7481f9445988bde4aa490f8371"
+          KEY_URL="https://haytool.online/DiskHaY/${KEY}.txt"
+          for i in $(seq 1 12); do
+            BODY=$(curl -fsSL --max-time 10 "$KEY_URL" 2>/dev/null || true)
+            if [ "$BODY" = "$KEY" ]; then
+              echo "Key verified at $KEY_URL"
+              exit 0
+            fi
+            echo "Waiting for Pages deploy ($i/12)..."
+            sleep 10
+          done
+          echo "::warning::Key file did not verify in time, attempting submission anyway"
+
+      - name: Notify IndexNow (Bing, Yandex, Seznam, Naver)
+        run: |
+          KEY="f8b88c7481f9445988bde4aa490f8371"
+          STATUS=$(curl -sS -o /tmp/indexnow_resp.txt -w "%{http_code}" \
+            -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{
+              \"host\": \"haytool.online\",
+              \"key\": \"${KEY}\",
+              \"keyLocation\": \"https://haytool.online/DiskHaY/${KEY}.txt\",
+              \"urlList\": [
+                \"https://haytool.online/DiskHaY/\",
+                \"https://haytool.online/DiskHaY/?lang=en\",
+                \"https://haytool.online/DiskHaY/?lang=tr\",
+                \"https://haytool.online/DiskHaY/?lang=es\",
+                \"https://haytool.online/DiskHaY/?lang=de\",
+                \"https://haytool.online/DiskHaY/?lang=fr\",
+                \"https://haytool.online/DiskHaY/?lang=ru\",
+                \"https://haytool.online/DiskHaY/?lang=pt\",
+                \"https://haytool.online/DiskHaY/?lang=zh\",
+                \"https://haytool.online/DiskHaY/?lang=ar\",
+                \"https://haytool.online/DiskHaY/?lang=hi\"
+              ]
+            }")
+          echo "IndexNow HTTP status: $STATUS"
+          cat /tmp/indexnow_resp.txt || true
+          if [ "$STATUS" != "200" ] && [ "$STATUS" != "202" ]; then
+            echo "::error::IndexNow submission failed with HTTP $STATUS"
+            exit 1
+          fi
