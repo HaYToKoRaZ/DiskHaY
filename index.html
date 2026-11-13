@@ -1,16 +1,70 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DiskHaY — HaYTooL | GPU Disk Space Visualizer &amp; Cleaner</title>
-    <meta name="description" content="DiskHaY is a GPU-accelerated interactive disk space visualizer and safe cleaner built with Rust and GPUI by HaYTooL.">
+    <title>DiskHaY — GPU Disk Space Visualizer &amp; Cleaner | HaYTooL</title>
+    <meta name="description" content="Analyze disk space in seconds with DiskHaY. GPU-accelerated Rust &amp; GPUI treemap visualizer, real block allocation sizing, safe cleanup, and 10 languages.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://haytool.online/DiskHaY/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="DiskHaY — HaYTooL">
+    <meta property="og:title" content="DiskHaY — GPU Disk Space Visualizer &amp; Cleaner">
+    <meta property="og:description" content="Analyze disk space in seconds with DiskHaY. GPU-accelerated Rust &amp; GPUI treemap visualizer, real block allocation sizing, safe cleanup, and 10 languages.">
+    <meta property="og:url" content="https://haytool.online/DiskHaY/">
+    <meta property="og:image" content="https://haytool.online/DiskHaY/assets/screenshots/treemap-dark.jpg">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="628">
+    <meta property="og:image:alt" content="DiskHaY interactive treemap disk space visualizer in dark theme">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DiskHaY — GPU Disk Space Visualizer &amp; Cleaner">
+    <meta name="twitter:description" content="GPU-accelerated Rust &amp; GPUI treemap disk space visualizer and safe cleaner for Windows &amp; Linux.">
+    <meta name="twitter:image" content="https://haytool.online/DiskHaY/assets/screenshots/treemap-dark.jpg">
+
     <link rel="icon" type="image/svg+xml" href="assets/diskhay-logo.svg">
     <link rel="alternate icon" type="image/png" href="assets/diskhay-logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "DiskHaY",
+          "url": "https://haytool.online/DiskHaY/"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "DiskHaY",
+          "description": "GPU-accelerated interactive disk space visualizer and safe cleaner built with Rust and GPUI.",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Windows, Linux",
+          "url": "https://haytool.online/DiskHaY/",
+          "downloadUrl": "https://github.com/HaYToKoRaZ/DiskHaY/releases/latest",
+          "screenshot": "https://haytool.online/DiskHaY/assets/screenshots/treemap-dark.jpg",
+          "license": "https://opensource.org/licenses/MIT",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "HaYTooL",
+            "url": "https://haytool.online/"
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <div class="bg-grid" aria-hidden="true"></div>
@@ -25,21 +79,21 @@
                 <span class="brand-tag">HaYTooL</span>
             </a>
 
-            <nav class="nav-links">
-                <a href="#screenshots" data-i18n="nav_screenshots">Ekran Görüntüleri</a>
-                <a href="#features" data-i18n="nav_features">Özellikler</a>
-                <a href="#download" data-i18n="nav_download">İndir</a>
-                <a href="#controls" data-i18n="nav_controls">Kısayollar</a>
-                <a href="https://haytool.online/" target="_blank" rel="noopener" class="nav-portal">
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="#screenshots" data-i18n="nav_screenshots">Screenshots</a>
+                <a href="#features" data-i18n="nav_features">Features</a>
+                <a href="#download" data-i18n="nav_download">Download</a>
+                <a href="#controls" data-i18n="nav_controls">Shortcuts</a>
+                <a href="https://haytool.online/" target="_blank" rel="noopener noreferrer" class="nav-portal">
                     <span>HaYTooL Portal</span>
                     <span aria-hidden="true">↗</span>
                 </a>
-                <a href="https://github.com/HaYToKoRaZ/DiskHaY" target="_blank" rel="noopener" class="btn-nav-gh">GitHub</a>
+                <a href="https://github.com/HaYToKoRaZ/DiskHaY" target="_blank" rel="noopener noreferrer" class="btn-nav-gh">GitHub</a>
 
                 <div class="lang-switcher" id="langSwitcher">
                     <button type="button" class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
-                        <img src="assets/flags/tr.svg" alt="TR" id="currentFlag" width="20" height="14">
-                        <span id="currentLangCode">TR</span>
+                        <img src="assets/flags/en.svg" alt="EN" id="currentFlag" width="20" height="14">
+                        <span id="currentLangCode">EN</span>
                         <span class="chevron" aria-hidden="true">▾</span>
                     </button>
                     <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Language">
@@ -65,23 +119,23 @@
                 <div class="hero-copy">
                     <div class="hero-pill">
                         <span class="pill-dot"></span>
-                        <span data-i18n="hero_badge">Rust + GPUI GPU Hızlandırma</span>
+                        <span data-i18n="hero_badge">Rust + GPUI GPU Acceleration</span>
                     </div>
-                    <h1 data-i18n="hero_title">Diskinizi neyin tükettiğini <span class="gradient-text">anında görün</span> ve güvenle temizleyin.</h1>
+                    <h1 data-i18n="hero_title">See what is eating your disk <span class="gradient-text">instantly</span> and clean safely.</h1>
                     <p class="hero-sub" data-i18n="hero_sub">
-                        DiskHaY, gerçek disk blok tahsisatına (st_blocks × 512) göre çalışan, GPUI tabanlı ultra hızlı mozaik (treemap) disk analiz ve temizleme aracıdır.
+                        DiskHaY is a GPU-accelerated treemap disk space analyzer and cleaner built with Rust and GPUI, sized strictly by real disk allocation (st_blocks × 512).
                     </p>
                     <div class="cta-row">
-                        <a href="https://github.com/HaYToKoRaZ/DiskHaY/releases/latest" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="cta_download">Son Sürümü İndir</a>
-                        <a href="#screenshots" class="btn btn-secondary" data-i18n="cta_preview">Ekran Görüntüleri</a>
-                        <a href="https://haytool.online/" target="_blank" rel="noopener" class="btn btn-ghost">HaYTooL Portal ↗</a>
+                        <a href="https://github.com/HaYToKoRaZ/DiskHaY/releases/latest" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="cta_download">Download Latest</a>
+                        <a href="#screenshots" class="btn btn-secondary" data-i18n="cta_preview">Screenshots</a>
+                        <a href="https://haytool.online/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">HaYTooL Portal ↗</a>
                     </div>
                     <div class="hero-meta">
                         <span data-i18n="meta_windows">Windows x64 (Setup &amp; Portable)</span>
                         <span>•</span>
                         <span data-i18n="meta_linux">Linux x86_64</span>
                         <span>•</span>
-                        <span data-i18n="meta_langs">10 Dil</span>
+                        <span data-i18n="meta_langs">10 Languages</span>
                         <span>•</span>
                         <span>MIT Open Source</span>
                     </div>
@@ -89,8 +143,8 @@
 
                 <div class="hero-visual">
                     <button type="button" class="hero-shot-card" data-lightbox="assets/screenshots/treemap-dark.jpg" data-caption-key="shot_treemap_cap">
-                        <img src="assets/screenshots/treemap-dark.jpg" alt="DiskHaY Treemap Dark Theme" loading="eager">
-                        <span class="shot-zoom-hint" data-i18n="shot_zoom">Tam boyutu gör ⤢</span>
+                        <img src="assets/screenshots/treemap-dark.jpg" alt="DiskHaY interactive treemap disk space visualizer in dark theme" width="1024" height="628" loading="eager">
+                        <span class="shot-zoom-hint" data-i18n="shot_zoom">View full size ⤢</span>
                     </button>
                 </div>
             </div>
@@ -99,38 +153,38 @@
         <section id="screenshots" class="section">
             <div class="container">
                 <div class="section-head">
-                    <h2 class="section-title" data-i18n="shots_title">Arayüzden Kareler</h2>
-                    <p class="section-desc" data-i18n="shots_desc">Koyu ve açık tema desteğiyle 60+ FPS akıcı GPUI arayüzü. Büyütmek için görsellere tıklayın.</p>
+                    <h2 class="section-title" data-i18n="shots_title">Interface Preview</h2>
+                    <p class="section-desc" data-i18n="shots_desc">Smooth 60+ FPS GPUI rendering with Dark and Light themes. Click any screenshot to enlarge.</p>
                 </div>
 
                 <div class="shots-grid">
                     <button type="button" class="shot-card" data-lightbox="assets/screenshots/treemap-dark.jpg" data-caption-key="shot_treemap_cap">
                         <div class="shot-img-wrap">
-                            <img src="assets/screenshots/treemap-dark.jpg" alt="DiskHaY Treemap Dark" loading="lazy">
+                            <img src="assets/screenshots/treemap-dark.jpg" alt="DiskHaY treemap mosaic view in dark theme" width="1024" height="628" loading="lazy">
                         </div>
                         <div class="shot-caption">
-                            <strong data-i18n="shot_treemap_title">Mozaik • Koyu Tema</strong>
-                            <span data-i18n="shot_treemap_cap">İnteraktif treemap haritası ve gerçek zamanlı boyut analizi</span>
+                            <strong data-i18n="shot_treemap_title">Treemap • Dark Theme</strong>
+                            <span data-i18n="shot_treemap_cap">Interactive treemap mosaic with real-time space analysis</span>
                         </div>
                     </button>
 
                     <button type="button" class="shot-card" data-lightbox="assets/screenshots/details-light.jpg" data-caption-key="shot_details_cap">
                         <div class="shot-img-wrap">
-                            <img src="assets/screenshots/details-light.jpg" alt="DiskHaY Details Light" loading="lazy">
+                            <img src="assets/screenshots/details-light.jpg" alt="DiskHaY sortable details table view in light theme" width="1024" height="628" loading="lazy">
                         </div>
                         <div class="shot-caption">
-                            <strong data-i18n="shot_details_title">Ayrıntılar • Açık Tema</strong>
-                            <span data-i18n="shot_details_cap">Sıralanabilir liste görünümü ve dosya işaretleyerek temizleme</span>
+                            <strong data-i18n="shot_details_title">Details • Light Theme</strong>
+                            <span data-i18n="shot_details_cap">Sortable details table and safe staged cleanup</span>
                         </div>
                     </button>
 
                     <button type="button" class="shot-card" data-lightbox="assets/screenshots/options-light.jpg" data-caption-key="shot_options_cap">
                         <div class="shot-img-wrap">
-                            <img src="assets/screenshots/options-light.jpg" alt="DiskHaY Options and Languages" loading="lazy">
+                            <img src="assets/screenshots/options-light.jpg" alt="DiskHaY options panel showing 10 languages with vector flags and theme switcher" width="1024" height="628" loading="lazy">
                         </div>
                         <div class="shot-caption">
-                            <strong data-i18n="shot_options_title">Seçenekler • 10 Dil</strong>
-                            <span data-i18n="shot_options_cap">Bayraklı dil seçici, tema ayarları ve performans profilleri</span>
+                            <strong data-i18n="shot_options_title">Options • 10 Languages</strong>
+                            <span data-i18n="shot_options_cap">Flag language switcher, themes, and worker performance profiles</span>
                         </div>
                     </button>
                 </div>
@@ -140,45 +194,45 @@
         <section id="features" class="section section-alt">
             <div class="container">
                 <div class="section-head">
-                    <h2 class="section-title" data-i18n="feat_title">Öne Çıkan Özellikler</h2>
-                    <p class="section-desc" data-i18n="feat_desc">Milyonlarca dosyayı saniyeler içinde tarayın, görselleştirin ve sıfır riskle yer açın.</p>
+                    <h2 class="section-title" data-i18n="feat_title">Key Features</h2>
+                    <p class="section-desc" data-i18n="feat_desc">Scan millions of files in seconds, visualize usage clearly, and reclaim space with zero risk.</p>
                 </div>
 
                 <div class="features-grid">
                     <article class="feat-card">
-                        <div class="feat-icon">⚡</div>
-                        <h3 data-i18n="f1_title">60+ FPS GPU Arayüz</h3>
-                        <p data-i18n="f1_desc">Rust ve GPUI motoru ile DOM veya WebView yükü olmadan doğrudan ekran kartı üzerinde akıcı çizim.</p>
+                        <div class="feat-icon" aria-hidden="true">⚡</div>
+                        <h3 data-i18n="f1_title">60+ FPS GPU Interface</h3>
+                        <p data-i18n="f1_desc">Built in Rust with GPUI hardware-accelerated rendering—zero DOM or WebView overhead.</p>
                     </article>
 
                     <article class="feat-card">
-                        <div class="feat-icon">🗺️</div>
-                        <h3 data-i18n="f2_title">Çift Görünüm (Mozaik &amp; Ayrıntılar)</h3>
-                        <p data-i18n="f2_desc">Üst çubuktan tek tıkla interaktif treemap mozaiği ile sıralanabilir ayrıntılar tablosu arasında geçiş yapın.</p>
+                        <div class="feat-icon" aria-hidden="true">🗺️</div>
+                        <h3 data-i18n="f2_title">Dual Views (Treemap &amp; Details)</h3>
+                        <p data-i18n="f2_desc">Switch instantly between the interactive treemap mosaic and sortable details list from the top bar.</p>
                     </article>
 
                     <article class="feat-card">
-                        <div class="feat-icon">📏</div>
-                        <h3 data-i18n="f3_title">Gerçek Disk Maliyeti</h3>
-                        <p data-i18n="f3_desc">Dosya boyutlarını yüzeysel uzunluğa göre değil, diskte kapladığı gerçek blok tahsisatına (st_blocks × 512) göre ölçer.</p>
+                        <div class="feat-icon" aria-hidden="true">📏</div>
+                        <h3 data-i18n="f3_title">Real Disk Allocation</h3>
+                        <p data-i18n="f3_desc">Measures actual filesystem block usage (st_blocks × 512) rather than superficial file lengths.</p>
                     </article>
 
                     <article class="feat-card">
-                        <div class="feat-icon">🛡️</div>
-                        <h3 data-i18n="f4_title">Güvenli Aşamalı Silme</h3>
-                        <p data-i18n="f4_desc">Onay vermeden hiçbir dosya silinmez. Kök sürücüler, sistem bağlama noktaları ve kullanıcı profilleri koruma altındadır.</p>
+                        <div class="feat-icon" aria-hidden="true">🛡️</div>
+                        <h3 data-i18n="f4_title">Safe Staged Cleanup</h3>
+                        <p data-i18n="f4_desc">Nothing is deleted until you review and confirm. Root drives, mounts, and user profiles are protected.</p>
                     </article>
 
                     <article class="feat-card">
-                        <div class="feat-icon">🌍</div>
-                        <h3 data-i18n="f5_title">10 Dil &amp; Koyu/Açık Tema</h3>
-                        <p data-i18n="f5_desc">Vektörel bayraklı 10 dil desteği ve diskhay.ini içinde saklanan kalıcı tema ve dil tercihleri.</p>
+                        <div class="feat-icon" aria-hidden="true">🌍</div>
+                        <h3 data-i18n="f5_title">10 Languages &amp; Themes</h3>
+                        <p data-i18n="f5_desc">Built-in localization with vector flags and persistent Dark/Light theme settings stored in diskhay.ini.</p>
                     </article>
 
                     <article class="feat-card">
-                        <div class="feat-icon">🔄</div>
-                        <h3 data-i18n="f6_title">Otomatik Güncelleme &amp; SSH</h3>
-                        <p data-i18n="f6_desc">Başlangıçta arka planda yeni sürümleri kontrol eder; ayrıca uzak Linux sunucularını SSH üzerinden yerel arayüzde tarar.</p>
+                        <div class="feat-icon" aria-hidden="true">🔄</div>
+                        <h3 data-i18n="f6_title">Auto Update Check &amp; SSH</h3>
+                        <p data-i18n="f6_desc">Non-blocking startup update check plus remote Linux server scanning over SSH in the local UI.</p>
                     </article>
                 </div>
             </div>
@@ -187,31 +241,31 @@
         <section id="download" class="section">
             <div class="container">
                 <div class="section-head">
-                    <h2 class="section-title" data-i18n="dl_title">İndirme ve Kurulum</h2>
-                    <p class="section-desc" data-i18n="dl_desc">Tüm paketler ve SHA256 doğrulama dosyaları GitHub Releases sayfasından indirilebilir.</p>
+                    <h2 class="section-title" data-i18n="dl_title">Download &amp; Installation</h2>
+                    <p class="section-desc" data-i18n="dl_desc">All packages and SHA256 checksums are available on the GitHub Releases page.</p>
                 </div>
 
                 <div class="dl-grid">
                     <div class="dl-card dl-featured">
-                        <div class="dl-badge" data-i18n="dl_rec">Önerilen</div>
+                        <div class="dl-badge" data-i18n="dl_rec">Recommended</div>
                         <h3>Windows x64 Setup</h3>
                         <p class="dl-file"><code>diskhay-*-windows-x64-setup.exe</code></p>
-                        <p data-i18n="dl_win_setup">Masaüstü kısayolu ve standart kaldırma yöneticisi içeren Windows kurulum paketi.</p>
-                        <a href="https://github.com/HaYToKoRaZ/DiskHaY/releases/latest" target="_blank" rel="noopener" class="btn btn-primary btn-full" data-i18n="dl_btn">GitHub Releases'tan İndir</a>
+                        <p data-i18n="dl_win_setup">Standard Windows installer with desktop shortcut and uninstall support.</p>
+                        <a href="https://github.com/HaYToKoRaZ/DiskHaY/releases/latest" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full" data-i18n="dl_btn">Download from GitHub</a>
                     </div>
 
                     <div class="dl-card">
                         <h3>Windows x64 Portable</h3>
                         <p class="dl-file"><code>diskhay-*-windows-x64-portable.zip</code></p>
-                        <p data-i18n="dl_win_port">Kurulum gerektirmez. ZIP arşivini çıkarıp doğrudan diskhay.exe dosyasını çalıştırın.</p>
-                        <a href="https://github.com/HaYToKoRaZ/DiskHaY/releases/latest" target="_blank" rel="noopener" class="btn btn-secondary btn-full" data-i18n="dl_btn">GitHub Releases'tan İndir</a>
+                        <p data-i18n="dl_win_port">No installation required. Extract the ZIP archive and launch diskhay.exe.</p>
+                        <a href="https://github.com/HaYToKoRaZ/DiskHaY/releases/latest" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-full" data-i18n="dl_btn">Download from GitHub</a>
                     </div>
 
                     <div class="dl-card">
                         <h3>Linux x86_64</h3>
                         <p class="dl-file"><code>diskhay-*-x86_64-linux.tar.gz</code></p>
-                        <p data-i18n="dl_linux">Arşivi açıp ./install.sh çalıştırarak uygulamayı, ikonu ve masaüstü girişini kurun.</p>
-                        <a href="https://github.com/HaYToKoRaZ/DiskHaY/releases/latest" target="_blank" rel="noopener" class="btn btn-secondary btn-full" data-i18n="dl_btn">GitHub Releases'tan İndir</a>
+                        <p data-i18n="dl_linux">Extract the tarball and run ./install.sh to install the binary, icon, and desktop entry.</p>
+                        <a href="https://github.com/HaYToKoRaZ/DiskHaY/releases/latest" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-full" data-i18n="dl_btn">Download from GitHub</a>
                     </div>
                 </div>
             </div>
@@ -220,46 +274,46 @@
         <section id="controls" class="section section-alt">
             <div class="container">
                 <div class="section-head">
-                    <h2 class="section-title" data-i18n="ctrl_title">Klavye ve Fare Kısayolları</h2>
-                    <p class="section-desc" data-i18n="ctrl_desc">Büyük dizinlerde fare veya klavyeyle ışık hızında gezinin.</p>
+                    <h2 class="section-title" data-i18n="ctrl_title">Keyboard &amp; Mouse Controls</h2>
+                    <p class="section-desc" data-i18n="ctrl_desc">Navigate huge directory trees effortlessly using mouse or keyboard.</p>
                 </div>
 
                 <div class="controls-table-wrap">
                     <table class="controls-table">
                         <thead>
                             <tr>
-                                <th data-i18n="ctrl_col_input">Girdi</th>
-                                <th data-i18n="ctrl_col_action">İşlem</th>
+                                <th data-i18n="ctrl_col_input">Input</th>
+                                <th data-i18n="ctrl_col_action">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><kbd>Click</kbd> / <kbd>Hover</kbd></td>
-                                <td data-i18n="c1">Klasör veya dosyayı seçip yan panelde ayrıntılarını görüntüleme</td>
+                                <td data-i18n="c1">Select and inspect directory or file details in the side panel</td>
                             </tr>
                             <tr>
                                 <td><kbd>Double Click</kbd> / <kbd>Enter</kbd></td>
-                                <td data-i18n="c2">Seçili klasörün içine odaklanma (Zoom in)</td>
+                                <td data-i18n="c2">Zoom into the selected directory</td>
                             </tr>
                             <tr>
                                 <td><kbd>Backspace</kbd> / <kbd>Esc</kbd></td>
-                                <td data-i18n="c3">Bir üst klasöre çıkma (Zoom out)</td>
+                                <td data-i18n="c3">Zoom out to the parent directory</td>
                             </tr>
                             <tr>
                                 <td><kbd>Space</kbd> / <kbd>Right Click</kbd></td>
-                                <td data-i18n="c4">Dosya veya klasörü silinmek üzere işaretleme / kaldırma</td>
+                                <td data-i18n="c4">Mark or unmark a file or folder for deletion</td>
                             </tr>
                             <tr>
                                 <td><kbd>C</kbd></td>
-                                <td data-i18n="c5">Silinecek öğeleri gözden geçirme penceresini açma</td>
+                                <td data-i18n="c5">Open the staged cleanup review modal</td>
                             </tr>
                             <tr>
                                 <td><kbd>R</kbd> / <kbd>F5</kbd></td>
-                                <td data-i18n="c6">Diski veya mevcut dizini yeniden tarama</td>
+                                <td data-i18n="c6">Rescan the current drive or directory</td>
                             </tr>
                             <tr>
                                 <td><kbd>?</kbd></td>
-                                <td data-i18n="c7">Tüm klavye kısayollarını gösterme</td>
+                                <td data-i18n="c7">Show all keyboard shortcuts</td>
                             </tr>
                         </tbody>
                     </table>
@@ -271,15 +325,15 @@
     <footer class="footer">
         <div class="container footer-inner">
             <div class="footer-brand">
-                <img src="assets/diskhay-logo.svg" alt="DiskHaY" width="26" height="26">
-                <span><strong>DiskHaY</strong> — <span data-i18n="footer_copy">© 2026 HaYTooL. MIT Lisansı ile açık kaynak.</span></span>
+                <img src="assets/diskhay-logo.svg" alt="DiskHaY Logo" width="26" height="26">
+                <span><strong>DiskHaY</strong> — <span data-i18n="footer_copy">© 2026 HaYTooL. Open source under the MIT License.</span></span>
             </div>
             <div class="footer-links">
-                <a href="https://haytool.online/" target="_blank" rel="noopener">HaYTooL Portal</a>
-                <a href="https://github.com/HaYToKoRaZ/DiskHaY" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://github.com/HaYToKoRaZ/DiskHaY/releases/latest" target="_blank" rel="noopener" data-i18n="footer_releases">Sürümler</a>
-                <a href="https://github.com/HaYToKoRaZ/DiskHaY/issues" target="_blank" rel="noopener" data-i18n="footer_issues">Hata Bildir</a>
-                <a href="https://github.com/HaYToKoRaZ/DiskHaY/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>
+                <a href="https://haytool.online/" target="_blank" rel="noopener noreferrer">HaYTooL Portal</a>
+                <a href="https://github.com/HaYToKoRaZ/DiskHaY" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://github.com/HaYToKoRaZ/DiskHaY/releases/latest" target="_blank" rel="noopener noreferrer" data-i18n="footer_releases">Releases</a>
+                <a href="https://github.com/HaYToKoRaZ/DiskHaY/issues" target="_blank" rel="noopener noreferrer" data-i18n="footer_issues">Report Issue</a>
+                <a href="https://github.com/HaYToKoRaZ/DiskHaY/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>
             </div>
         </div>
     </footer>
@@ -287,7 +341,7 @@
     <div class="lightbox" id="lightbox" hidden aria-modal="true" role="dialog">
         <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
         <div class="lightbox-body">
-            <img src="" alt="" id="lightboxImg">
+            <img src="" alt="Screenshot preview" id="lightboxImg">
             <p id="lightboxCaption"></p>
         </div>
     </div>
