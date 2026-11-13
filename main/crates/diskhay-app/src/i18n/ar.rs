@@ -12,6 +12,7 @@ pub static STRINGS: Strings = Strings {
     language_header: "لغة الواجهة",
     ini_note: "يتم حفظ التفضيلات في diskhay.ini.",
     check_updates_btn: "🔄 التحقق من وجود تحديثات",
+    website_btn: "🌐 الموقع الإلكتروني ↗",
     download_update_btn: "⬇️ تنزيل التحديث",
     close: "إغلاق",
     choose_source_title: "اختر مصدراً ثم حدد المجلد الجذر للفحص.",

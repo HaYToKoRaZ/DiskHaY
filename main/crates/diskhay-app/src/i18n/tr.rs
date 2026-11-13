@@ -12,6 +12,7 @@ pub static STRINGS: Strings = Strings {
     language_header: "Uygulama Dili",
     ini_note: "Tercihler diskhay.ini dosyasında saklanır.",
     check_updates_btn: "🔄 Güncellemeleri Denetle",
+    website_btn: "🌐 Web Sitesi ↗",
     download_update_btn: "⬇️ Güncellemeyi İndir",
     close: "Kapat",
     choose_source_title: "Bir kaynak ve taranacak kök dizin seçin.",

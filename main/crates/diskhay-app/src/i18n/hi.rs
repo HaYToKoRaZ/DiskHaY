@@ -12,6 +12,7 @@ pub static STRINGS: Strings = Strings {
     language_header: "इंटरफ़ेस भाषा",
     ini_note: "प्राथमिकताएं diskhay.ini में सहेजी जाती हैं।",
     check_updates_btn: "🔄 अपडेट की जाँच करें",
+    website_btn: "🌐 वेबसाइट ↗",
     download_update_btn: "⬇️ अपडेट डाउनलोड करें",
     close: "बंद करें",
     choose_source_title: "एक स्रोत और स्कैन करने के लिए रूट फ़ोल्डर चुनें।",

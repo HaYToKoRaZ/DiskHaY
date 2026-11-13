@@ -746,6 +746,15 @@ fn options_dialog(
             this.set_default_view(crate::state::ViewLayout::Mosaic, cx);
             this.apply_focus(window, cx);
         }));
+    let website_btn = dialog_button(
+        "open-website-btn",
+        lang.website_btn(),
+        ButtonVariant::Secondary,
+        cx,
+    )
+    .on_click(cx.listener(|_, _, _, cx| {
+        cx.open_url("https://haytool.online/DiskHaY/");
+    }));
     let close_btn = dialog_button(
         "options-close",
         lang.close(),
@@ -852,8 +861,10 @@ fn options_dialog(
             div()
                 .flex()
                 .flex_row()
-                .justify_end()
+                .justify_between()
+                .gap(space::SM)
                 .pt(space::SM)
+                .child(website_btn)
                 .child(close_btn),
         );
 

@@ -67,6 +67,7 @@ define_strings! {
         ini_note,
         check_updates_btn,
         download_update_btn,
+        website_btn,
         close,
         choose_source_title,
         choose_source_sub,

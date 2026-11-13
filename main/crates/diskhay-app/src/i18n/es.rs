@@ -12,6 +12,7 @@ pub static STRINGS: Strings = Strings {
     language_header: "Idioma de la interfaz",
     ini_note: "Las preferencias se guardan en diskhay.ini.",
     check_updates_btn: "🔄 Buscar actualizaciones",
+    website_btn: "🌐 Sitio web ↗",
     download_update_btn: "⬇️ Descargar actualización",
     close: "Cerrar",
     choose_source_title: "Elija un origen y una raíz para escanear.",

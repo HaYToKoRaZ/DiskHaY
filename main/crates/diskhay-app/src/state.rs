@@ -1308,16 +1308,21 @@ impl DiskHaY {
                     #[cfg(not(windows))]
                     let curl = "curl";
 
-                    let output = std::process::Command::new(curl)
-                        .args([
-                            "-s",
-                            "-m",
-                            "5",
-                            "-H",
-                            "User-Agent: DiskHaY",
-                            "https://api.github.com/repos/HaYToKoRaZ/DiskHaY/releases/latest",
-                        ])
-                        .output();
+                    let mut cmd = std::process::Command::new(curl);
+                    cmd.args([
+                        "-s",
+                        "-m",
+                        "5",
+                        "-H",
+                        "User-Agent: DiskHaY",
+                        "https://api.github.com/repos/HaYToKoRaZ/DiskHaY/releases/latest",
+                    ]);
+                    #[cfg(windows)]
+                    {
+                        use std::os::windows::process::CommandExt;
+                        cmd.creation_flags(0x08000000);
+                    }
+                    let output = cmd.output();
 
                     match output {
                         Ok(out) if out.status.success() => {

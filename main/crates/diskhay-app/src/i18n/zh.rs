@@ -12,6 +12,7 @@ pub static STRINGS: Strings = Strings {
     language_header: "界面语言",
     ini_note: "配置保存在 diskhay.ini 中。",
     check_updates_btn: "🔄 检查更新",
+    website_btn: "🌐 官方网站 ↗",
     download_update_btn: "⬇️ 下载更新",
     close: "关闭",
     choose_source_title: "选择数据源，然后选择要扫描的根目录。",
