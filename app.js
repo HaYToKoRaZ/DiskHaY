@@ -581,6 +581,111 @@ const I18N = {
     }
 };
 
+const MASCOT_I18N = {
+    tr: {
+        name: "HaYra • DiskHaY Rehberi",
+        next: "Sonraki ipucu →",
+        tips: [
+            "İpucu: Dosyaları silmeden önce güvenle işaretlemek için Boşluk tuşuna basın veya sağ tıklayın.",
+            "İpucu: DiskHaY gerçek disk blok boyutunu (st_blocks × 512) ölçer, böylece gerçek alanı görürsünüz.",
+            "İpucu: Mozaik ve Ayrıntılar görünümü arasında tek tıkla geçin; C tuşuyla silme listesini gözden geçirin."
+        ]
+    },
+    en: {
+        name: "HaYra • DiskHaY Guide",
+        next: "Next tip →",
+        tips: [
+            "Tip: Press Space or Right Click to mark files safely before deleting anything.",
+            "Tip: DiskHaY measures real filesystem block allocation (st_blocks × 512) so you see true disk cost.",
+            "Tip: Switch between Treemap and Details in one click, and press C to review staged cleanup."
+        ]
+    },
+    es: {
+        name: "HaYra • Guía DiskHaY",
+        next: "Siguiente consejo →",
+        tips: [
+            "Consejo: Pulsa Espacio o clic derecho para marcar archivos con seguridad antes de borrar.",
+            "Consejo: DiskHaY mide bloques reales (st_blocks × 512) para mostrar el uso real del disco.",
+            "Consejo: Cambia entre Mosaico y Detalles en un clic y pulsa C para revisar la limpieza."
+        ]
+    },
+    de: {
+        name: "HaYra • DiskHaY-Assistentin",
+        next: "Nächster Tipp →",
+        tips: [
+            "Tipp: Drücken Sie Leertaste oder Rechtsklick, um Dateien vor dem Löschen sicher vorzumerken.",
+            "Tipp: DiskHaY misst echte Blockgrößen (st_blocks × 512) für präzisen Speicherverbrauch.",
+            "Tipp: Wechseln Sie per Klick zwischen Treemap und Details; C öffnet die Löschprüfung."
+        ]
+    },
+    fr: {
+        name: "HaYra • Guide DiskHaY",
+        next: "Astuce suivante →",
+        tips: [
+            "Astuce : Appuyez sur Espace ou clic droit pour marquer vos fichiers avant toute suppression.",
+            "Astuce : DiskHaY mesure l'allocation réelle des blocs (st_blocks × 512) sur votre disque.",
+            "Astuce : Passez de la mosaïque aux détails en un clic et appuyez sur C pour vérifier la liste."
+        ]
+    },
+    ru: {
+        name: "HaYra • Гид DiskHaY",
+        next: "Следующий совет →",
+        tips: [
+            "Совет: Нажмите Пробел или правую кнопку мыши, чтобы безопасно отметить файлы перед удалением.",
+            "Совет: DiskHaY учитывает реальные блоки (st_blocks × 512), показывая точный расход места.",
+            "Совет: Переключайтесь между Мозаикой и Деталями в один клик; клавиша C открывает список очистки."
+        ]
+    },
+    pt: {
+        name: "HaYra • Guia DiskHaY",
+        next: "Próxima dica →",
+        tips: [
+            "Dica: Pressione Espaço ou clique com o botão direito para marcar arquivos com segurança.",
+            "Dica: DiskHaY mede a alocação real de blocos (st_blocks × 512) para precisão total.",
+            "Dica: Alterne entre Mosaico e Detalhes em um clique e pressione C para revisar a limpeza."
+        ]
+    },
+    zh: {
+        name: "HaYra • DiskHaY 助手",
+        next: "下一条提示 →",
+        tips: [
+            "提示：按空格键或右键单击，即可在删除前安全标记文件或文件夹。",
+            "提示：DiskHaY 按真实块分配（st_blocks × 512）统计占用空间。",
+            "提示：一键切换矩形树状图与详细信息视图，按 C 键打开待清理确认列表。"
+        ]
+    },
+    ar: {
+        name: "HaYra • مرشدة DiskHaY",
+        next: "النصيحة التالية ←",
+        tips: [
+            "نصيحة: اضغط مسافة أو زر الفأرة الأيمن لتحديد الملفات بأمان قبل الحذف.",
+            "نصيحة: يقيس DiskHaY التخصيص الفعلي للكتل (st_blocks × 512) لعرض الحجم الحقيقي.",
+            "نصيحة: بدّل بين الخريطة والتفاصيل بنقرة واحدة واضغط C لمراجعة قائمة التنظيف."
+        ]
+    },
+    hi: {
+        name: "HaYra • DiskHaY गाइड",
+        next: "अगला सुझाव →",
+        tips: [
+            "सुझाव: हटाने से पहले फ़ाइलों को सुरक्षित रूप से चिह्नित करने के लिए Space या राइट-क्लिक दबाएँ।",
+            "सुझाव: DiskHaY वास्तविक ब्लॉक आवंटन (st_blocks × 512) मापता है ताकि आपको सटीक उपयोग दिखे।",
+            "सुझाव: एक क्लिक में ट्री-मैप और विवरण बदलें, और सफाई समीक्षा के लिए C दबाएँ।"
+        ]
+    }
+};
+
+let mascotTipIndex = 0;
+
+function updateMascotText(lang) {
+    const m = MASCOT_I18N[lang] || MASCOT_I18N.en;
+    const nameEl = document.querySelector('[data-i18n="mascot_name"]');
+    const nextEl = document.getElementById("mascotNext");
+    const tipEl = document.getElementById("mascotTip");
+    if (nameEl) nameEl.textContent = m.name;
+    if (nextEl) nextEl.textContent = m.next;
+    if (tipEl) tipEl.textContent = m.tips[mascotTipIndex % m.tips.length];
+}
+
 const LANG_META = {
     tr: { code: "TR", dir: "ltr" },
     en: { code: "EN", dir: "ltr" },
@@ -623,6 +728,8 @@ function applyLanguage(lang) {
         btn.classList.toggle("active", btn.getAttribute("data-lang") === chosen);
     });
 
+    updateMascotText(chosen);
+
     try {
         localStorage.setItem("diskhay_lang", chosen);
     } catch (_) {
@@ -631,13 +738,13 @@ function applyLanguage(lang) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    let initial = "tr";
+    let initial = "en";
     try {
         const saved = localStorage.getItem("diskhay_lang");
         if (saved && I18N[saved]) {
             initial = saved;
         } else {
-            const navLang = (navigator.language || "tr").slice(0, 2).toLowerCase();
+            const navLang = (navigator.language || "en").slice(0, 2).toLowerCase();
             if (I18N[navLang]) initial = navLang;
         }
     } catch (_) {}
@@ -694,4 +801,27 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && !lightbox.hidden) closeLightbox();
     });
+
+    // Lady Mascot Guide
+    const mascotBubble = document.getElementById("mascotBubble");
+    const mascotToggle = document.getElementById("mascotToggle");
+    const mascotClose = document.getElementById("mascotClose");
+    const mascotNext = document.getElementById("mascotNext");
+
+    if (mascotNext) {
+        mascotNext.addEventListener("click", () => {
+            mascotTipIndex = (mascotTipIndex + 1) % 3;
+            updateMascotText(document.documentElement.lang || "en");
+        });
+    }
+    if (mascotClose && mascotBubble) {
+        mascotClose.addEventListener("click", () => {
+            mascotBubble.hidden = true;
+        });
+    }
+    if (mascotToggle && mascotBubble) {
+        mascotToggle.addEventListener("click", () => {
+            mascotBubble.hidden = !mascotBubble.hidden;
+        });
+    }
 });

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="DiskHaY Lady Mascot">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="hairGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#312e81"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer badge -->
+  <circle cx="60" cy="60" r="56" fill="url(#bgGrad)" stroke="url(#accentGrad)" stroke-width="3"/>
+
+  <!-- Back hair -->
+  <path d="M32 52 C28 30, 42 18, 60 18 C78 18, 92 30, 88 52 L91 84 C84 90, 74 92, 60 92 C46 92, 36 90, 29 84 Z" fill="url(#hairGrad)"/>
+
+  <!-- Shoulders / Tech jacket -->
+  <path d="M26 104 C30 84, 43 78, 60 78 C77 78, 90 84, 94 104 Z" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+  <path d="M48 79 L60 95 L72 79" fill="none" stroke="url(#accentGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Mini treemap pin on lapel -->
+  <rect x="69" y="87" width="11" height="9" rx="2" fill="#0284c7"/>
+  <rect x="70" y="88" width="5" height="4" rx="0.8" fill="#38bdf8"/>
+  <rect x="76" y="88" width="3" height="7" rx="0.8" fill="#34d399"/>
+
+  <!-- Neck & Face -->
+  <rect x="54" y="68" width="12" height="12" rx="5" fill="#fbd3b6"/>
+  <ellipse cx="60" cy="52" rx="20" ry="22" fill="#fde2cc"/>
+
+  <!-- Rosy cheeks -->
+  <ellipse cx="47" cy="57" rx="3.8" ry="2.2" fill="#fb7185" opacity="0.35"/>
+  <ellipse cx="73" cy="57" rx="3.8" ry="2.2" fill="#fb7185" opacity="0.35"/>
+
+  <!-- Eyes -->
+  <circle cx="51.5" cy="51" r="3.2" fill="#0f172a"/>
+  <circle cx="68.5" cy="51" r="3.2" fill="#0f172a"/>
+  <circle cx="52.5" cy="49.8" r="1.1" fill="#ffffff"/>
+  <circle cx="69.5" cy="49.8" r="1.1" fill="#ffffff"/>
+
+  <!-- Stylish tech glasses -->
+  <rect x="43" y="45" width="16" height="11" rx="4" fill="rgba(56,189,248,0.12)" stroke="#38bdf8" stroke-width="1.8"/>
+  <rect x="61" y="45" width="16" height="11" rx="4" fill="rgba(56,189,248,0.12)" stroke="#38bdf8" stroke-width="1.8"/>
+  <line x1="59" y1="50" x2="61" y2="50" stroke="#38bdf8" stroke-width="1.8"/>
+
+  <!-- Smile -->
+  <path d="M54 62 Q60 67 66 62" fill="none" stroke="#be123c" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Front hair / bangs -->
+  <path d="M38 46 C40 28, 55 22, 68 25 C80 28, 84 40, 81 48 C76 37, 67 34, 58 35 C49 36, 43 40, 38 46 Z" fill="#1e1b4b"/>
+
+  <!-- Headset band & mic -->
+  <path d="M37 49 C37 31, 83 31, 83 49" fill="none" stroke="url(#accentGrad)" stroke-width="3" stroke-linecap="round"/>
+  <rect x="34" y="45" width="5" height="12" rx="2.5" fill="#38bdf8"/>
+  <rect x="81" y="45" width="5" height="12" rx="2.5" fill="#34d399"/>
+  <path d="M36 56 Q38 66 51 66" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+  <circle cx="51" cy="66" r="2" fill="#34d399"/>
+</svg>

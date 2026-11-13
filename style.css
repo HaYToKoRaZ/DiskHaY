@@ -675,6 +675,99 @@ kbd {
     font-size: 0.95rem;
 }
 
+/* Lady Mascot Guide */
+.mascot-widget {
+    position: fixed;
+    bottom: 20px;
+    inset-inline-end: 20px;
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.65rem;
+}
+
+.mascot-bubble {
+    width: min(290px, calc(100vw - 40px));
+    background: rgba(18, 25, 39, 0.96);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-strong);
+    border-radius: 14px;
+    padding: 0.9rem 1rem;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+    display: grid;
+    gap: 0.55rem;
+}
+
+.mascot-bubble[hidden] {
+    display: none;
+}
+
+.mascot-bubble-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--primary);
+}
+
+.mascot-close {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 0.9rem;
+    line-height: 1;
+    padding: 0.15rem;
+}
+
+.mascot-close:hover {
+    color: var(--text);
+}
+
+.mascot-bubble p {
+    font-size: 0.86rem;
+    color: var(--text);
+    line-height: 1.45;
+}
+
+.mascot-next {
+    justify-self: start;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    background: rgba(56, 189, 248, 0.12);
+    color: var(--primary);
+    border-radius: 8px;
+    padding: 0.32rem 0.68rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    cursor: pointer;
+}
+
+.mascot-next:hover {
+    background: rgba(56, 189, 248, 0.22);
+}
+
+.mascot-avatar-btn {
+    border: none;
+    background: transparent;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 10px 28px rgba(14, 165, 233, 0.28);
+    transition: transform 0.18s ease;
+}
+
+.mascot-avatar-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+}
+
+.mascot-avatar-btn img {
+    display: block;
+    border-radius: 50%;
+}
+
 @media (max-width: 960px) {
     .hero-grid,
     .shots-grid,
