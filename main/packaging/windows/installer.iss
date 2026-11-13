@@ -3,7 +3,7 @@
 #define MyAppURL "https://github.com/HaYToKoRaZ/DiskHaY"
 #define MyAppExeName "diskhay.exe"
 #ifndef MyAppVersion
-  #define MyAppVersion "1.0.6"
+  #define MyAppVersion "1.0.7"
 #endif
 
 [Setup]
