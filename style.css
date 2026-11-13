@@ -366,6 +366,8 @@ a {
 
 .hero-shot-card img {
     width: 100%;
+    height: auto;
+    aspect-ratio: 1024 / 628;
     display: block;
 }
 
