@@ -1420,7 +1420,7 @@ dependencies = [
 
 [[package]]
 name = "disktree-app"
-version = "1.0.4"
+version = "1.0.5"
 dependencies = [
  "anyhow",
  "disktree-core",
@@ -1435,7 +1435,7 @@ dependencies = [
 
 [[package]]
 name = "disktree-core"
-version = "1.0.4"
+version = "1.0.5"
 dependencies = [
  "chrono",
  "rayon",
@@ -1453,7 +1453,7 @@ dependencies = [
 
 [[package]]
 name = "disktree-scan"
-version = "1.0.4"
+version = "1.0.5"
 dependencies = [
  "disktree-core",
  "rustix",
@@ -8685,7 +8685,7 @@ checksum = "ec7a2a501ed189703dba8b08142f057e887dfc4b2cc4db2d343ac6376ba3e0b9"
 
 [[package]]
 name = "xtask"
-version = "1.0.4"
+version = "1.0.5"
 dependencies = [
  "disktree-core",
 ]
