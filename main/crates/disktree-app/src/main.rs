@@ -54,11 +54,11 @@ struct Args {
 }
 
 const USAGE: &str = "\
-disktree — a treemap of what is using your disk
+diskhay — a treemap of what is using your disk
 
-usage: disktree [OPTIONS] [PATH]
-       disktree ssh HOST [OPTIONS] [PATH]
-       disktree extract-scanner ARCH OUTPUT
+usage: diskhay [OPTIONS] [PATH]
+       diskhay ssh HOST [OPTIONS] [PATH]
+       diskhay extract-scanner ARCH OUTPUT
 
 Linux packaged builds deploy an embedded static scanner over SSH on demand.
 Unbundled development builds need disktree-scan on the remote PATH or in
@@ -126,7 +126,7 @@ fn run() -> Result<()> {
         let host = args
             .remote
             .as_deref()
-            .context("--check requires disktree ssh HOST")?;
+            .context("--check requires diskhay ssh HOST")?;
         let scan = disktree_core::remote::RemoteScan::spawn(
             host,
             &disktree_core::remote::Request {
@@ -269,7 +269,7 @@ fn extract_scanner() -> Result<bool> {
     }
     anyhow::ensure!(
         args.len() == 3,
-        "usage: disktree extract-scanner ARCH OUTPUT"
+        "usage: diskhay extract-scanner ARCH OUTPUT"
     );
     let archive = disktree_core::payload::Archive::current()?
         .context("no embedded scanners; build with cargo xtask portable")?;
@@ -323,7 +323,7 @@ fn parse_args_with_power(
     let remote = if args.peek().is_some_and(|arg| arg == "ssh") {
         args.next();
         let host =
-            text(args.next(), "ssh needs a host, e.g. disktree ssh dev")?;
+            text(args.next(), "ssh needs a host, e.g. diskhay ssh dev")?;
         disktree_core::remote::validate_host(&host)?;
         Some(host)
     } else {
