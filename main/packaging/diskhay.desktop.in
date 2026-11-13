@@ -1,0 +1,22 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=DiskHaY
+GenericName=Disk space treemap
+Comment=Find what is using a volume, mark what should go, remove it
+Exec=@BINDIR@/diskhay %f
+Icon=diskhay
+Terminal=false
+Categories=System;Filesystem;
+Keywords=disk;space;usage;du;treemap;cleanup;
+StartupNotify=true
+StartupWMClass=diskhay
+# Registered for directories, so a file manager can offer "Open with DiskHaY".
+# This adds a handler; it does not become the default.
+MimeType=inode/directory;
+Actions=disk;
+X-AppVersion=@VERSION@
+
+[Desktop Action disk]
+Name=Scan the whole disk
+Exec=@BINDIR@/diskhay --disk

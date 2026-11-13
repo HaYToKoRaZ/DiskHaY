@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  check-windows:
+    name: Lint & Test (Windows)
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: main
+    steps:
+      - name: Disable autocrlf
+        run: git config --global core.autocrlf false
+        working-directory: .
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-msvc
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: main -> target
+
+      - name: Cargo Check
+        run: cargo check --workspace
+
+      - name: Cargo Test
+        run: cargo test --workspace
+
+  check-ubuntu:
+    name: Lint & Test (Ubuntu)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: main
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: System libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            pkg-config libxkbcommon-dev libxkbcommon-x11-dev libwayland-dev \
+            libx11-xcb-dev libxcb1-dev libfontconfig-dev libfreetype-dev \
+            libvulkan-dev libasound2-dev libssl-dev libzstd-dev
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: main -> target
+
+      - name: Cargo Check
+        run: cargo check --workspace
+
+      - name: Cargo Test
+        run: cargo test --workspace

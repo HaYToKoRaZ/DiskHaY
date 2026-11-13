@@ -1,0 +1,21 @@
+# Root seviyesindeki her seyi disla
+/*
+
+# Istisnalar:
+!/main/
+!/.github/
+!/assets/
+!/README.md
+!/LICENSE
+!/.gitignore
+
+# Gecici, yerel ve binary ciktilar
+target/
+build/
+backup/
+.agents/
+dist/
+.codebase-memory/
+**/target/
+**/build/
+main/.codebase-memory/

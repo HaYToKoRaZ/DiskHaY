@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- disktree's mark (assets/disktree.svg) on the macOS icon grid: an 824 pt
+     rounded square centred on a 1024 pt canvas, the rest transparent. A
+     full-bleed square would be shrunk into a grey tile on macOS 26. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <clipPath id="tile">
+      <rect x="100" y="100" width="824" height="824" rx="185" ry="185"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#tile)">
+    <rect x="100" y="100" width="824" height="824" fill="#f2f4f7"/>
+    <!-- The 512 unit mark, scaled to 616 pt and centred on the tile. -->
+    <g transform="translate(204 204) scale(1.203125)">
+      <g stroke="#000" stroke-width="14" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M10 148 V438 a162 36 0 0 0 324 0 V148 Z" fill="#5f6461"/>
+        <path d="M10 254 a162 36 0 0 0 324 0" fill="none"/>
+        <path d="M10 358 a162 36 0 0 0 324 0" fill="none"/>
+        <ellipse cx="172" cy="148" rx="162" ry="36" fill="#8c908e"/>
+        <g stroke-width="12" fill="none">
+          <path d="M125 228 H222"/>
+          <path d="M125 327 H222"/>
+          <path d="M125 425 H222"/>
+        </g>
+        <rect x="256" y="38" width="246" height="366" rx="24" fill="#2ed38c"/>
+        <g fill="#e6e6e6" stroke-width="10">
+          <circle cx="301" cy="82" r="20"/>
+          <circle cx="459" cy="82" r="20"/>
+          <circle cx="301" cy="358" r="20"/>
+          <circle cx="459" cy="358" r="20"/>
+        </g>
+        <circle cx="381" cy="182" r="82" fill="#555555"/>
+        <circle cx="381" cy="182" r="33" fill="#e6e6e6" stroke-width="10"/>
+        <path d="M412 212 L440 243 Q464 262 456 281 Q440 292 428 273 Q418 252 412 212 Z"
+              fill="#f5b800" stroke-width="10"/>
+        <g stroke-width="10" fill="none">
+          <path d="M340 300 H424"/>
+          <path d="M340 326 H424"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
