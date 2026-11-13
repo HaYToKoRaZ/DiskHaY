@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/disktree.svg" width="100" height="100" alt="DiskHaY Logo" />
+<img src="assets/diskhay.svg" width="100" height="100" alt="DiskHaY Logo" />
 
 # DiskHaY
 
@@ -105,13 +105,13 @@ SHA256 checksums (`.sha256`) are provided alongside each asset for file integrit
 ```powershell
 # Clone repository
 git clone https://github.com/HaYToKoRaZ/DiskHaY.git
-cd disktree/main
+cd diskhay/main
 
 # Run debug build
 cargo run --bin diskhay
 
 # Build optimized release binary
-cargo build --release -p disktree-app
+cargo build --release -p diskhay-app
 ```
 
 ---
@@ -172,13 +172,13 @@ Her dosya için SHA256 doğrulama kodları (`.sha256`) yayın sayfasında mevcut
 ```powershell
 # Depoyu klonlayın
 git clone https://github.com/HaYToKoRaZ/DiskHaY.git
-cd disktree/main
+cd diskhay/main
 
 # Geliştirici modunda çalıştırın
 cargo run --bin diskhay
 
 # Dağıtım için optimize release sürümü derleyin
-cargo build --release -p disktree-app
+cargo build --release -p diskhay-app
 ```
 
 ---

@@ -55,7 +55,7 @@ jobs:
         shell: pwsh
         run: |
           cd main
-          cargo build --release --locked -p disktree-app
+          cargo build --release --locked -p diskhay-app
 
       - name: Create Portable & Setup Packages
         shell: pwsh
@@ -193,7 +193,7 @@ jobs:
 
       - name: Build Release Binary
         working-directory: main
-        run: cargo build --release --locked -p disktree-app
+        run: cargo build --release --locked -p diskhay-app
 
       - name: Create Linux Package
         env:
@@ -203,7 +203,7 @@ jobs:
           name="diskhay-v${VERSION}-x86_64-linux"
           mkdir -p dist "dist/${name}"
           cp main/target/release/diskhay "dist/${name}/diskhay"
-          cp main/assets/disktree.svg "dist/${name}/diskhay.svg"
+          cp main/assets/diskhay.svg "dist/${name}/diskhay.svg"
           cp main/packaging/diskhay.desktop.in "dist/${name}/diskhay.desktop.in"
           cp main/packaging/install.sh "dist/${name}/install.sh"
           cp README.md LICENSE "dist/${name}/"

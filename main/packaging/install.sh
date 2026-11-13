@@ -1,5 +1,5 @@
 #!/bin/sh
-# Install a disktree release: the binary, a desktop entry and an icon.
+# Install a diskhay release: the binary, a desktop entry and an icon.
 #
 #   ./install.sh                  # into ~/.local, no root needed
 #   sudo PREFIX=/usr/local ./install.sh
