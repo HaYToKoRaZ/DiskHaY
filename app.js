@@ -704,12 +704,16 @@ function applyLanguage(lang) {
     const dict = I18N[chosen];
     const meta = LANG_META[chosen];
 
-    document.documentElement.lang = chosen;
-    document.documentElement.dir = meta.dir;
+    if (document.documentElement.lang !== chosen) {
+        document.documentElement.lang = chosen;
+    }
+    if (document.documentElement.dir !== meta.dir) {
+        document.documentElement.dir = meta.dir;
+    }
 
     document.querySelectorAll("[data-i18n]").forEach((el) => {
         const key = el.getAttribute("data-i18n");
-        if (dict[key] !== undefined) {
+        if (dict[key] !== undefined && el.innerHTML !== dict[key]) {
             el.innerHTML = dict[key];
         }
     });
