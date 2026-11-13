@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiskHaY HaYTooL — Treemap Disk Alanı Gezgini</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <span class="logo-icon">🌳</span>
+                <span class="logo-text">DiskHaY <span class="tag">HaYTooL</span></span>
+            </div>
+            <nav class="nav-links">
+                <a href="#features">Özellikler</a>
+                <a href="#architecture">Mimari</a>
+                <a href="https://github.com/HaYToKoRaZ/DiskHaY" target="_blank" class="btn-github">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="badge">GPUI + Rust Performansı</div>
+                <h1>Diskinizi neyin tükettiğini <span class="gradient-text">anında görün</span> ve güvenle temizleyin.</h1>
+                <p class="subtitle">
+                    DiskHaY, modern GPUI motoru ile saniyede milyonlarca dosyayı analiz eden,
+                    treemap tabanlı ultra hızlı disk alanı görselleştirme aracıdır.
+                </p>
+                <div class="cta-group">
+                    <a href="https://github.com/HaYToKoRaZ/DiskHaY/releases" class="btn primary">İndir (v1.0.5)</a>
+                    <a href="#architecture" class="btn secondary">Mimarisi İncele</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features section">
+            <div class="container">
+                <h2 class="section-title">Öne Çıkan Özellikler</h2>
+                <div class="grid cards">
+                    <div class="card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Ultra Hızlı MFT & Win32</h3>
+                        <p>Windows NTFS Master File Table doğrudan okunur; milyonlarca dosya birkaç saniyede haritalandırılır.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🛡️</div>
+                        <h3>Sıfır Hata Silme Koruması</h3>
+                        <p>Sistem ve profil dizinleri (`FOLDERID_UserProfiles`) koruma altındadır. Yalnızca taranan ve onaylanan yollar kaldırılabilir.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🎨</div>
+                        <h3>GPUI Canvas Treemap</h3>
+                        <p>DOM veya WebView yükü olmadan doğrudan GPU hızlandırmalı interaktif mozaik çizimi.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🌐</div>
+                        <h3>SSH Uzaktan Tarama</h3>
+                        <p>Uzak Linux sunucularına SSH üzerinden bağlanıp ağacı yerel arayüzde gezinin.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="architecture" class="architecture section">
+            <div class="container">
+                <h2 class="section-title">Modüler HaYTooL Mimarisi</h2>
+                <div class="code-box">
+                    <pre><code>main/
+├── crates/
+│   ├── disktree-app/   # GPUI masaüstü arayüzü & durum yönetimi
+│   ├── disktree-core/  # Tarama, MFT, SSH, silme korumaları
+│   └── disktree-scan/  # Bağımsız CLI motoru
+├── packaging/          # Windows & Linux kurulum paketleri
+└── xtask/              # Linter, test ve paketleme otomasyonu</code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>© 2026 HaYTooL. Açık kaynak MIT lisansı ile korunmaktadır.</p>
+            <p><a href="https://github.com/HaYToKoRaZ/DiskHaY">GitHub Deposu</a></p>
+        </div>
+    </footer>
+</body>
+</html>
