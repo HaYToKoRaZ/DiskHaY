@@ -1,62 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="DiskHaY Lady Mascot">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="DiskHaY Cat Mascot">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="catBg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#080b12"/>
     </linearGradient>
-    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="catRing" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#38bdf8"/>
       <stop offset="100%" stop-color="#34d399"/>
     </linearGradient>
-    <linearGradient id="hairGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#312e81"/>
-      <stop offset="100%" stop-color="#1e1b4b"/>
+    <linearGradient id="catFur" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
     </linearGradient>
+    <linearGradient id="catEye" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <clipPath id="circleClip">
+      <circle cx="60" cy="60" r="54"/>
+    </clipPath>
   </defs>
 
-  <!-- Outer badge -->
-  <circle cx="60" cy="60" r="56" fill="url(#bgGrad)" stroke="url(#accentGrad)" stroke-width="3"/>
+  <circle cx="60" cy="60" r="57" fill="url(#catBg)" stroke="url(#catRing)" stroke-width="3.5"/>
 
-  <!-- Back hair -->
-  <path d="M32 52 C28 30, 42 18, 60 18 C78 18, 92 30, 88 52 L91 84 C84 90, 74 92, 60 92 C46 92, 36 90, 29 84 Z" fill="url(#hairGrad)"/>
+  <g clip-path="url(#circleClip)">
+    <!-- Body & collar -->
+    <path d="M30 118c2-20 14-31 30-31s28 11 30 31z" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+    <path d="M40 90c6 5 34 5 40 0" fill="none" stroke="url(#catRing)" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="60" cy="96" r="5.5" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="60" cy="96" r="2" fill="#34d399"/>
 
-  <!-- Shoulders / Tech jacket -->
-  <path d="M26 104 C30 84, 43 78, 60 78 C77 78, 90 84, 94 104 Z" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
-  <path d="M48 79 L60 95 L72 79" fill="none" stroke="url(#accentGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Mini treemap pin on lapel -->
-  <rect x="69" y="87" width="11" height="9" rx="2" fill="#0284c7"/>
-  <rect x="70" y="88" width="5" height="4" rx="0.8" fill="#38bdf8"/>
-  <rect x="76" y="88" width="3" height="7" rx="0.8" fill="#34d399"/>
+    <!-- Ears -->
+    <path d="M27 56L24 22l24 15z" fill="url(#catFur)" stroke="#475569" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M93 56l3-34-24 15z" fill="url(#catFur)" stroke="#475569" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M30 50l-2-20 15 10z" fill="#f472b6" opacity="0.72"/>
+    <path d="M90 50l2-20-15 10z" fill="#f472b6" opacity="0.72"/>
 
-  <!-- Neck & Face -->
-  <rect x="54" y="68" width="12" height="12" rx="5" fill="#fbd3b6"/>
-  <ellipse cx="60" cy="52" rx="20" ry="22" fill="#fde2cc"/>
+    <!-- Head -->
+    <ellipse cx="60" cy="62" rx="33" ry="28" fill="url(#catFur)" stroke="#475569" stroke-width="1.8"/>
 
-  <!-- Rosy cheeks -->
-  <ellipse cx="47" cy="57" rx="3.8" ry="2.2" fill="#fb7185" opacity="0.35"/>
-  <ellipse cx="73" cy="57" rx="3.8" ry="2.2" fill="#fb7185" opacity="0.35"/>
+    <!-- Forehead stripes -->
+    <path d="M60 35v7M53 37l2 6M67 37l-2 6" stroke="#38bdf8" stroke-width="2.4" stroke-linecap="round" opacity="0.75"/>
 
-  <!-- Eyes -->
-  <circle cx="51.5" cy="51" r="3.2" fill="#0f172a"/>
-  <circle cx="68.5" cy="51" r="3.2" fill="#0f172a"/>
-  <circle cx="52.5" cy="49.8" r="1.1" fill="#ffffff"/>
-  <circle cx="69.5" cy="49.8" r="1.1" fill="#ffffff"/>
+    <!-- Cheek fur tufts -->
+    <path d="M27 64l-5-2 4 6M93 64l5-2-4 6" stroke="#475569" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 
-  <!-- Stylish tech glasses -->
-  <rect x="43" y="45" width="16" height="11" rx="4" fill="rgba(56,189,248,0.12)" stroke="#38bdf8" stroke-width="1.8"/>
-  <rect x="61" y="45" width="16" height="11" rx="4" fill="rgba(56,189,248,0.12)" stroke="#38bdf8" stroke-width="1.8"/>
-  <line x1="59" y1="50" x2="61" y2="50" stroke="#38bdf8" stroke-width="1.8"/>
+    <!-- Eyes -->
+    <ellipse cx="46" cy="59" rx="7.2" ry="8" fill="#080b12"/>
+    <ellipse cx="74" cy="59" rx="7.2" ry="8" fill="#080b12"/>
+    <ellipse cx="46" cy="59.5" rx="5.4" ry="6.2" fill="url(#catEye)"/>
+    <ellipse cx="74" cy="59.5" rx="5.4" ry="6.2" fill="url(#catEye)"/>
+    <ellipse cx="46" cy="60" rx="2.6" ry="4.5" fill="#04101b"/>
+    <ellipse cx="74" cy="60" rx="2.6" ry="4.5" fill="#04101b"/>
+    <circle cx="43.5" cy="56.5" r="2.2" fill="#ffffff"/>
+    <circle cx="71.5" cy="56.5" r="2.2" fill="#ffffff"/>
+    <circle cx="48.5" cy="62.5" r="1" fill="#ffffff" opacity="0.8"/>
+    <circle cx="76.5" cy="62.5" r="1" fill="#ffffff" opacity="0.8"/>
 
-  <!-- Smile -->
-  <path d="M54 62 Q60 67 66 62" fill="none" stroke="#be123c" stroke-width="2" stroke-linecap="round"/>
+    <!-- Nose & mouth -->
+    <path d="M56.5 68.5h7l-3.5 4z" fill="#f472b6"/>
+    <path d="M60 72.5c0 3-3.5 4.5-6 3M60 72.5c0 3 3.5 4.5 6 3" fill="none" stroke="#e2e8f0" stroke-width="1.8" stroke-linecap="round"/>
 
-  <!-- Front hair / bangs -->
-  <path d="M38 46 C40 28, 55 22, 68 25 C80 28, 84 40, 81 48 C76 37, 67 34, 58 35 C49 36, 43 40, 38 46 Z" fill="#1e1b4b"/>
+    <!-- Blush -->
+    <ellipse cx="36" cy="68" rx="4.5" ry="2.4" fill="#f472b6" opacity="0.28"/>
+    <ellipse cx="84" cy="68" rx="4.5" ry="2.4" fill="#f472b6" opacity="0.28"/>
 
-  <!-- Headset band & mic -->
-  <path d="M37 49 C37 31, 83 31, 83 49" fill="none" stroke="url(#accentGrad)" stroke-width="3" stroke-linecap="round"/>
-  <rect x="34" y="45" width="5" height="12" rx="2.5" fill="#38bdf8"/>
-  <rect x="81" y="45" width="5" height="12" rx="2.5" fill="#34d399"/>
-  <path d="M36 56 Q38 66 51 66" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
-  <circle cx="51" cy="66" r="2" fill="#34d399"/>
+    <!-- Whiskers -->
+    <path d="M35 66l-13-2M35 70l-14 1M36 74l-12 4" stroke="#94a3b8" stroke-width="1.4" stroke-linecap="round" opacity="0.85"/>
+    <path d="M85 66l13-2M85 70l14 1M84 74l12 4" stroke="#94a3b8" stroke-width="1.4" stroke-linecap="round" opacity="0.85"/>
+  </g>
 </svg>
