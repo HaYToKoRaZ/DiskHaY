@@ -1,0 +1,21 @@
+{
+  "name": "DiskHaY — GPU Disk Space Visualizer & Cleaner",
+  "short_name": "DiskHaY",
+  "description": "GPU-accelerated interactive disk space visualizer and safe cleaner by HaYTooL.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#080b12",
+  "theme_color": "#38bdf8",
+  "icons": [
+    {
+      "src": "assets/diskhay-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "assets/diskhay-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
