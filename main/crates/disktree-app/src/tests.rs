@@ -1014,7 +1014,7 @@ fn enter_in_the_focused_volume_picker_scans_the_selected_root(
 ) {
     cx.update(gpui_omarchy::init);
     let temp = fixture();
-    let target = temp.path().join("junk");
+    let target = dunce::canonicalize(temp.path().join("junk")).expect("canonical target");
     let (view, cx) = view_over(temp.path(), cx);
     update(&view, cx, |app, _| {
         app.volumes = vec![disktree_core::space::Volume {
