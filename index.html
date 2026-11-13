@@ -64,51 +64,6 @@
             "name": "HaYTooL",
             "url": "https://haytool.online/"
           }
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "What is the difference between Real Disk Allocation and Apparent Size?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Apparent size shows logical byte length, while Real Disk Allocation measures actual filesystem blocks (st_blocks * 512 or NTFS cluster allocation). This gives a more accurate storage optimization picture for sparse files and prevents unnecessary deletion."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Is cleaning up files with DiskHaY safe?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. You stage files and folders first with Space or Right Click, inspect the exact review summary, and hard safety guards block deletion of the scanned root, home folder, mount points, or system profile directories."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Which operating systems and filesystems are supported?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "DiskHaY runs natively on Windows 10/11 (x64) with fast NTFS MFT scanning and on Linux (x86_64) across ext4, btrfs, xfs, and other POSIX filesystems."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Can DiskHaY scan remote Linux servers over SSH?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. Enter any user@host:/path SSH target to stream real-time snapshots from a remote server and explore disk usage locally at 60+ FPS."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Is DiskHaY free and open source?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, DiskHaY is 100% free and open source under the MIT License with zero telemetry or ads."
-              }
-            }
-          ]
         }
       ]
     }
