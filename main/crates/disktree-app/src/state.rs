@@ -1300,57 +1300,55 @@ impl Disktree {
 
         let lang = self.language;
         cx.spawn(async move |this, cx| {
-            let result = std::thread::spawn(move || {
-                let output = std::process::Command::new("curl.exe")
-                    .args([
-                        "-s",
-                        "-m",
-                        "5",
-                        "-H",
-                        "User-Agent: DiskHaY",
-                        "https://api.github.com/repos/HaYToKoRaZ/DiskHaY/releases/latest",
-                    ])
-                    .output();
+            let result = cx
+                .background_executor()
+                .spawn(async move {
+                    #[cfg(windows)]
+                    let curl = "curl.exe";
+                    #[cfg(not(windows))]
+                    let curl = "curl";
 
-                match output {
-                    Ok(out) if out.status.success() => {
-                        let text = String::from_utf8_lossy(&out.stdout);
-                        if let Ok(json) = serde_json::from_str::<serde_json::Value>(&text) {
-                            if let Some(tag) = json.get("tag_name").and_then(|v| v.as_str()) {
+                    let output = std::process::Command::new(curl)
+                        .args([
+                            "-s",
+                            "-m",
+                            "5",
+                            "-H",
+                            "User-Agent: DiskHaY",
+                            "https://api.github.com/repos/HaYToKoRaZ/DiskHaY/releases/latest",
+                        ])
+                        .output();
+
+                    match output {
+                        Ok(out) if out.status.success() => {
+                            let text = String::from_utf8_lossy(&out.stdout);
+                            if let Ok(json) = serde_json::from_str::<serde_json::Value>(&text)
+                                && let Some(tag) = json.get("tag_name").and_then(|v| v.as_str())
+                            {
                                 let remote_ver = tag.trim_start_matches('v');
                                 let current_ver = env!("CARGO_PKG_VERSION");
-                                let html_url = json.get("html_url").and_then(|v| v.as_str()).unwrap_or("https://github.com/HaYToKoRaZ/DiskHaY/releases");
-                                if remote_ver != current_ver {
+                                if is_newer_version(remote_ver, current_ver) {
+                                    let fallback = "https://github.com/HaYToKoRaZ/DiskHaY/releases";
+                                    let html_url = json
+                                        .get("html_url")
+                                        .and_then(|v| v.as_str())
+                                        .filter(|u| {
+                                            u.starts_with("https://github.com/HaYToKoRaZ/DiskHaY/")
+                                        })
+                                        .unwrap_or(fallback);
                                     return (
                                         lang.new_version_available(remote_ver, current_ver),
                                         Some(html_url.to_string()),
                                     );
-                                } else {
-                                    return (
-                                        lang.up_to_date(current_ver),
-                                        None,
-                                    );
                                 }
+                                return (lang.up_to_date(current_ver), None);
                             }
+                            (lang.up_to_date(env!("CARGO_PKG_VERSION")), None)
                         }
-                        (
-                            lang.up_to_date(env!("CARGO_PKG_VERSION")),
-                            None,
-                        )
+                        _ => (lang.update_server_error().to_string(), None),
                     }
-                    _ => (
-                        lang.update_server_error().to_string(),
-                        None,
-                    ),
-                }
-            })
-            .join()
-            .unwrap_or_else(|_| {
-                (
-                    lang.update_check_failed().to_string(),
-                    None,
-                )
-            });
+                })
+                .await;
 
             let _ = this.update(cx, |this, cx| {
                 this.checking_update = false;
@@ -1361,6 +1359,22 @@ impl Disktree {
         })
         .detach();
     }
+}
+
+fn is_newer_version(remote: &str, current: &str) -> bool {
+    let parse = |s: &str| -> (u64, u64, u64) {
+        let core = s.split(['-', '+']).next().unwrap_or("");
+        let mut nums = core.split('.').map(|p| p.parse::<u64>().unwrap_or(0));
+        (
+            nums.next().unwrap_or(0),
+            nums.next().unwrap_or(0),
+            nums.next().unwrap_or(0),
+        )
+    };
+    parse(remote) > parse(current)
+}
+
+impl Disktree {
 
     /// Start a fresh scan, abandoning any walk still in progress.
     pub fn start_scan(&mut self, cx: &mut Context<'_, Self>) {

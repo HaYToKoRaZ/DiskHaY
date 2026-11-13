@@ -74,9 +74,9 @@ Visit the [**Latest Releases**](https://github.com/HaYToKoRaZ/DiskHaY/releases) 
 
 | Platform | Package | File | Description |
 | :--- | :--- | :--- | :--- |
-| **Windows x64** | **Setup (Recommended)** | `diskhay-v1.0.3-windows-x64-setup.exe` | Standard Windows installer with desktop shortcut and uninstall support. |
-| **Windows x64** | **Portable** | `diskhay-v1.0.3-windows-x64-portable.zip` | Standalone archive. Extract anywhere and launch `diskhay.exe`. |
-| **Linux x86_64** | **Tarball** | `diskhay-v1.0.3-x86_64-linux.tar.gz` | Extract and run `./install.sh` to install binary, icon, and `.desktop` entry. |
+| **Windows x64** | **Setup (Recommended)** | `diskhay-v1.0.4-windows-x64-setup.exe` | Standard Windows installer with desktop shortcut and uninstall support. |
+| **Windows x64** | **Portable** | `diskhay-v1.0.4-windows-x64-portable.zip` | Standalone archive. Extract anywhere and launch `diskhay.exe`. |
+| **Linux x86_64** | **Tarball** | `diskhay-v1.0.4-x86_64-linux.tar.gz` | Extract and run `./install.sh` to install binary, icon, and `.desktop` entry. |
 
 SHA256 checksums (`.sha256`) are provided alongside each asset for file integrity verification.
 
@@ -141,9 +141,9 @@ En son sürümü indirmek için [**GitHub Releases**](https://github.com/HaYToKo
 
 | Platform | Paket | Dosya | Açıklama |
 | :--- | :--- | :--- | :--- |
-| **Windows x64** | **Kurulum (Önerilen)** | `diskhay-v1.0.3-windows-x64-setup.exe` | Masaüstü kısayolu ve kaldırma yöneticisi içeren standart Windows kurulumu. |
-| **Windows x64** | **Taşınabilir (Portable)** | `diskhay-v1.0.3-windows-x64-portable.zip` | Kurulum gerektirmez. ZIP'ten çıkarıp doğrudan `diskhay.exe` dosyasını çalıştırın. |
-| **Linux x86_64** | **Arşiv (Tarball)** | `diskhay-v1.0.3-x86_64-linux.tar.gz` | Arşivi açıp `./install.sh` çalıştırarak ikili dosyayı, ikonu ve masaüstü girişini kurun. |
+| **Windows x64** | **Kurulum (Önerilen)** | `diskhay-v1.0.4-windows-x64-setup.exe` | Masaüstü kısayolu ve kaldırma yöneticisi içeren standart Windows kurulumu. |
+| **Windows x64** | **Taşınabilir (Portable)** | `diskhay-v1.0.4-windows-x64-portable.zip` | Kurulum gerektirmez. ZIP'ten çıkarıp doğrudan `diskhay.exe` dosyasını çalıştırın. |
+| **Linux x86_64** | **Arşiv (Tarball)** | `diskhay-v1.0.4-x86_64-linux.tar.gz` | Arşivi açıp `./install.sh` çalıştırarak ikili dosyayı, ikonu ve masaüstü girişini kurun. |
 
 Her dosya için SHA256 doğrulama kodları (`.sha256`) yayın sayfasında mevcuttur.
 

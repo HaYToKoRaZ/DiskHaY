@@ -39,12 +39,21 @@ pub struct AppConfig {
 }
 
 impl AppConfig {
-    /// Locate `diskhay.ini` next to the running executable, or in the current directory.
+    /// Locate `diskhay.ini` next to the running executable (portable mode) if
+    /// that directory is writable, otherwise in the per-user config directory
+    /// so installer builds under Program Files or `/usr/local` can save prefs.
     pub fn file_path() -> PathBuf {
-        if let Ok(exe) = std::env::current_exe() {
-            if let Some(dir) = exe.parent() {
-                return dir.join("diskhay.ini");
+        if let Ok(exe) = std::env::current_exe()
+            && let Some(dir) = exe.parent()
+        {
+            let portable = dir.join("diskhay.ini");
+            if is_dir_writable(dir) {
+                return portable;
             }
+            if let Some(user_dir) = user_config_dir() {
+                return user_dir.join("diskhay.ini");
+            }
+            return portable;
         }
         PathBuf::from("diskhay.ini")
     }
@@ -98,9 +107,14 @@ impl AppConfig {
         }
     }
 
-    /// Save configuration to `disktree.ini`.
+    /// Save configuration to `diskhay.ini`.
     pub fn save(&self) -> io::Result<()> {
         let path = Self::file_path();
+        if let Some(parent) = path.parent()
+            && !parent.as_os_str().is_empty()
+        {
+            let _ = fs::create_dir_all(parent);
+        }
         let view_str = match self.default_view {
             ViewLayout::Mosaic => "mosaic",
             ViewLayout::Details => "details",
@@ -112,5 +126,34 @@ impl AppConfig {
             self.theme_mode.code()
         );
         fs::write(path, content)
+    }
+}
+
+fn is_dir_writable(dir: &std::path::Path) -> bool {
+    let probe = dir.join(".diskhay_write_probe");
+    if fs::OpenOptions::new()
+        .write(true)
+        .create_new(true)
+        .open(&probe)
+        .is_ok()
+    {
+        let _ = fs::remove_file(&probe);
+        true
+    } else {
+        false
+    }
+}
+
+fn user_config_dir() -> Option<PathBuf> {
+    #[cfg(windows)]
+    {
+        std::env::var_os("APPDATA").map(|p| PathBuf::from(p).join("DiskHaY"))
+    }
+    #[cfg(not(windows))]
+    {
+        std::env::var_os("XDG_CONFIG_HOME")
+            .map(PathBuf::from)
+            .or_else(|| std::env::var_os("HOME").map(|h| PathBuf::from(h).join(".config")))
+            .map(|p| p.join("diskhay"))
     }
 }

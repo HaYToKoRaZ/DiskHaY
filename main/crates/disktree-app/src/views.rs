@@ -420,7 +420,7 @@ fn delete_dialog(
 fn flag_icon(lang: crate::i18n::Language, w: gpui_kit::Pixels, h: gpui_kit::Pixels) -> impl IntoElement {
     canvas(
         |_bounds, _window, _cx| {},
-        move |bounds, _, window, _cx| {
+        move |bounds, (), window, _cx| {
             let red = Hsla { h: 356.0 / 360.0, s: 0.88, l: 0.44, a: 1.0 };
             let white = Hsla { h: 0.0, s: 0.0, l: 0.98, a: 1.0 };
             let none = Edges::all(px(0.));
@@ -659,7 +659,7 @@ fn option_tile(
         .flex_row()
         .items_center()
         .gap(space::SM)
-        .when(centered, |this| this.justify_center())
+        .when(centered, Styled::justify_center)
         .w_full()
         .h(px(32.))
         .px(space::MD)
@@ -686,7 +686,6 @@ fn options_dialog(
     let note = lang.ini_note();
 
     let close_entity = cx.entity().downgrade();
-    let lang_entity = cx.entity().downgrade();
 
     let lang_buttons: Vec<_> = crate::i18n::Language::ALL
         .into_iter()
@@ -1465,7 +1464,7 @@ fn view_settings(
             app.language.mode_age().to_string(),
         ],
         app.mode_index(),
-        |this, index, cx| this.set_mode(index, cx),
+        Disktree::set_mode,
         cx,
     );
 

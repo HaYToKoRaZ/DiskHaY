@@ -86,8 +86,6 @@ pub mod size {
     /// Fixed progress rows keep paths and changing counters from reflowing.
     pub const PROGRESS_ROW: Rems = Rems(1.375);
     pub const PROGRESS_VALUE: Rems = Rems(9.0);
-    /// The Size | Files | Age choice in the settings row.
-    pub const RANKING_CHOICE: Rems = Rems(11.0);
     /// The review screen's summary column.
     pub const REVIEW_SUMMARY: Rems = Rems(22.5);
     /// The review list's share-bar lane.
