@@ -735,13 +735,27 @@ function applyLanguage(lang) {
     } catch (_) {
         // Ignore storage restrictions
     }
+
+    try {
+        const url = new URL(window.location.href);
+        if (url.searchParams.get("lang") !== chosen) {
+            url.searchParams.set("lang", chosen);
+            window.history.replaceState(null, "", url.toString());
+        }
+    } catch (_) {
+        // Ignore history restrictions
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     let initial = "en";
     try {
+        const urlLang = new URLSearchParams(window.location.search).get("lang");
+        const normalizedUrlLang = urlLang ? urlLang.trim().toLowerCase() : "";
         const saved = localStorage.getItem("diskhay_lang");
-        if (saved && I18N[saved]) {
+        if (normalizedUrlLang && I18N[normalizedUrlLang]) {
+            initial = normalizedUrlLang;
+        } else if (saved && I18N[saved]) {
             initial = saved;
         } else {
             const navLang = (navigator.language || "en").slice(0, 2).toLowerCase();
